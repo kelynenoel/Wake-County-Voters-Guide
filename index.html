@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wake County Vote Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1C2B45;
+    --navy-deep: #131E32;
+    --gold: #D4A017;
+    --gold-bright: #E8B93A;
+    --paper: #F5F0E6;
+    --paper-dim: #EAE3D3;
+    --ink: #262019;
+    --ink-soft: #5C5346;
+    --brick: #A63D33;
+    --line: rgba(38,32,25,0.16);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    margin: 0;
+    background: var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(212,160,23,0.10), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(212,160,23,0.07), transparent 45%);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 64px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-in{
+      animation: riseIn 0.7s cubic-bezier(.2,.7,.3,1) both;
+    }
+    @keyframes riseIn{
+      from{ opacity: 0; transform: translateY(10px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  main{
+    width: 100%;
+    max-width: 480px;
+    padding: 0 20px;
+  }
+
+  header{
+    padding: 52px 4px 28px;
+    text-align: left;
+  }
+
+  .kicker{
+    color: var(--gold-bright);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0 0 10px;
+  }
+
+  h1{
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(32px, 8vw, 40px);
+    line-height: 1.08;
+    color: #FBF8F1;
+    margin: 0 0 12px;
+  }
+
+  header p{
+    color: rgba(251,248,241,0.72);
+    font-size: 15.5px;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 38ch;
+  }
+
+  .primary-card{
+    display: block;
+    text-decoration: none;
+    background: var(--gold);
+    background-image: linear-gradient(155deg, var(--gold-bright), var(--gold) 65%);
+    border-radius: 14px;
+    padding: 22px 22px 20px;
+    margin: 8px 0 34px;
+    box-shadow: 0 14px 30px -14px rgba(0,0,0,0.55);
+    position: relative;
+    overflow: hidden;
+  }
+  .primary-card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(155deg, rgba(255,255,255,0.16), transparent 55%);
+    pointer-events: none;
+  }
+  .primary-card .tag{
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.72;
+    margin: 0 0 6px;
+  }
+  .primary-card .title{
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--navy-deep);
+    margin: 0 0 4px;
+    line-height: 1.2;
+  }
+  .primary-card .sub{
+    font-size: 14px;
+    color: rgba(19,30,50,0.75);
+    margin: 0;
+  }
+
+  .group{
+    margin-bottom: 30px;
+  }
+
+  .group-label{
+    color: rgba(251,248,241,0.55);
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 12px 4px;
+  }
+
+  .stub{
+    display: flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+    background: var(--paper);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+
+  .stub:last-child{ margin-bottom: 0; }
+
+  .stub-notch{
+    flex: 0 0 44px;
+    align-self: stretch;
+    background: var(--navy-deep);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 7px,
+      rgba(245,240,230,0.35) 7px,
+      rgba(245,240,230,0.35) 8px
+    );
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stub-notch::before,
+  .stub-notch::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    background: var(--navy);
+    border-radius: 50%;
+    right: -7px;
+  }
+  .stub-notch::before{ top: -7px; }
+  .stub-notch::after{ bottom: -7px; }
+  .stub-num{
+    color: var(--gold-bright);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 17px;
+  }
+
+  .stub-body{
+    flex: 1;
+    padding: 15px 16px;
+    min-width: 0;
+  }
+  .stub-body .t{
+    font-weight: 600;
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0 0 2px;
+    line-height: 1.3;
+  }
+  .stub-body .d{
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  footer{
+    margin-top: 40px;
+    padding: 0 4px;
+  }
+  .divider{
+    border: none;
+    border-top: 1px dashed rgba(251,248,241,0.22);
+    margin: 0 0 20px;
+  }
+  footer .note{
+    font-size: 12.5px;
+    color: rgba(251,248,241,0.5);
+    line-height: 1.6;
+    margin: 0 0 10px;
+  }
+  footer .note strong{
+    color: rgba(251,248,241,0.68);
+    font-weight: 600;
+  }
+  footer .stamp{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--brick);
+    background: rgba(166,61,51,0.14);
+    border: 1px solid rgba(166,61,51,0.35);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 360px){
+    h1{ font-size: 30px; }
+    .stub-notch{ flex-basis: 38px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="fade-in">
+    <p class="kicker">What's up NC — let's talk voting</p>
+    <h1>Wake County<br>Vote Guide</h1>
+    <p>Everything for the November 3, 2026 election, sorted by what you actually need to do next.</p>
+  </header>
+
+  <a class="primary-card fade-in" href="https://vt.ncsbe.gov/RegLkup" target="_blank" rel="noopener">
+    <p class="tag">Start here</p>
+    <p class="title">Check my registration &amp; sample ballot</p>
+    <p class="sub">Status, polling place, districts, and your exact ballot — one lookup</p>
+  </a>
+
+  <div class="group fade-in">
+    <p class="group-label">Dates &amp; registration</p>
+
+    <a class="stub" href="https://www.ncsbe.gov/voting/upcoming-election" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">1</span></span>
+      <span class="stub-body">
+        <p class="t">See all election deadlines</p>
+        <p class="d">Registration, early voting, and absentee dates in one place</p>
+      </span>
+    </a>
+
+    <a class="stub" href="https://www.ncdot.gov/dmv/offices-services/online/Pages/voter-registration-application.aspx" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">2</span></span>
+      <span class="stub-body">
+        <p class="t">Register or update online</p>
+        <p class="d">Registration deadline is Friday, Oct 9 at 5 PM</p>
+      </span>
+    </a>
+  </div>
+
+  <div class="group fade-in">
+    <p class="group-label">Voting in person</p>
+
+    <a class="stub" href="https://vt.ncsbe.gov/OSSite" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">3</span></span>
+      <span class="stub-body">
+        <p class="t">Find early voting sites</p>
+        <p class="d">Oct 15–31, any site in Wake County</p>
+      </span>
+    </a>
+
+    <a class="stub" href="https://www.ncsbe.gov/voting/vote-early-person" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">4</span></span>
+      <span class="stub-body">
+        <p class="t">Same-day registration info</p>
+        <p class="d">Missed the deadline? Register during early voting instead</p>
+      </span>
+    </a>
+
+    <a class="stub" href="https://www.ncsbe.gov/voting/voter-id" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">5</span></span>
+      <span class="stub-body">
+        <p class="t">Check your ID / get a free ID</p>
+        <p class="d">What counts, and what to do if you don't have one</p>
+      </span>
+    </a>
+  </div>
+
+  <div class="group fade-in">
+    <p class="group-label">Voting by mail</p>
+
+    <a class="stub" href="https://votebymail.ncsbe.gov" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">6</span></span>
+      <span class="stub-body">
+        <p class="t">Request an absentee ballot</p>
+        <p class="d">Request by Oct 20, return by 7:30 PM on Nov 3</p>
+      </span>
+    </a>
+  </div>
+
+  <div class="group fade-in">
+    <p class="group-label">Know your ballot</p>
+
+    <a class="stub" href="https://www.ncsbe.gov/voting/upcoming-election" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">7</span></span>
+      <span class="stub-body">
+        <p class="t">Judicial candidate guide</p>
+        <p class="d">Supreme Court and Court of Appeals races explained</p>
+      </span>
+    </a>
+
+    <a class="stub" href="https://my.lwv.org/north-carolina-state/action-alert/three-constitutional-amendments-north-carolinas-2026-ballot" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">8</span></span>
+      <span class="stub-body">
+        <p class="t">Amendments explained</p>
+        <p class="d">Nonpartisan breakdown of all three on this year's ballot</p>
+      </span>
+    </a>
+
+    <a class="stub" href="https://ballotpedia.org/Wake_County,_North_Carolina,_elections,_2026" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">9</span></span>
+      <span class="stub-body">
+        <p class="t">Every seat up for election</p>
+        <p class="d">Full list of Wake County offices on the 2026 ballot — DA, sheriff, commissioners, judges, school board, and more</p>
+      </span>
+    </a>
+  </div>
+
+  <div class="group fade-in">
+    <p class="group-label">Wake county</p>
+
+    <a class="stub" href="https://www.wake.gov/departments-government/board-elections/election-information/2026-general-election" target="_blank" rel="noopener">
+      <span class="stub-notch"><span class="stub-num">10</span></span>
+      <span class="stub-body">
+        <p class="t">Wake County Board of Elections</p>
+        <p class="d">Office address, contact info, local updates</p>
+      </span>
+    </a>
+  </div>
+
+  <footer class="fade-in">
+    <hr class="divider">
+    <p class="note"><strong>Sources:</strong> NCSBE.gov, Wake.gov, League of Women Voters NC.<br>Verified Sept 14, 2026 — early voting sites and the judicial guide finalize closer to Election Day, so recheck those two before Nov 3.</p>
+    <span class="stamp">Nonpartisan · Official sources only</span>
+  </footer>
+
+</main>
+</body>
+</html>
